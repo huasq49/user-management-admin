@@ -1,0 +1,30 @@
+server:
+  port: ${SERVER_PORT:8080}
+  forward-headers-strategy: ${FORWARD_HEADERS_STRATEGY:none}
+  error:
+    include-message: never
+    include-stacktrace: never
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:mysql://127.0.0.1:3306/user_monitor?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai}
+    username: ${DB_USER:user_monitor}
+    password: ${DB_PASSWORD}
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 3MB
+  jpa:
+    hibernate:
+      ddl-auto: ${DDL_AUTO:validate}
+    open-in-view: false
+    properties:
+      hibernate.jdbc.time_zone: Asia/Shanghai
+app:
+  admin:
+    username: ${ADMIN_USERNAME:admin}
+    password: ${ADMIN_PASSWORD}
+  client-secret: ${CLIENT_SECRET}
+  session-hours: ${SESSION_HOURS:24}
+  afdian:
+    user-id: ${AFDIAN_USER_ID:}
+    token: ${AFDIAN_TOKEN:}
